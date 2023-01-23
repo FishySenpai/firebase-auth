@@ -3,12 +3,13 @@ import Registration from "./reg";
 import Profile from "./profile";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App">   
         <Login/>
         <Registration/>
         <Profile/>
-      </header>
+        <div className="text-center" >
+          satdf
+        </div>
     </div>
   );
 }
