@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase-config";
+import { GoogleAuthProvider, signInWithEmailAndPassword, Goo, signOut } from "firebase/auth";
+import { auth, signInWithGoogle } from "./firebase-config";
 
 const Login = () => {
 
@@ -61,12 +61,14 @@ const Login = () => {
         <div className="mt-6">
           <button
             className="w-full px-4 py-2 tracking-wide font-mono cursor-pointer text-[16px] text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-gray-900"
-           onClick={login}
+            onClick={login}
           >
             Login
           </button>
         </div>
-
+        <div>
+          <button onClick={signInWithGoogle}>Sign in With google</button>
+        </div>
         <p className="mt-8 font-mono cursor-pointer text-[12px] text-white">
           {" "}
           Don't have an account?{" "}
@@ -78,6 +80,15 @@ const Login = () => {
           </a>
         </p>
       </div>
+      <div className="flex flex-col justify-center items-center">
+        <h1>{localStorage.getItem("name")}</h1>
+        <h1>{localStorage.getItem("email")}</h1>
+        <img
+          className="h-[100px] w-[100px]"
+          src={localStorage.getItem("profilePic")}
+        />
+      </div>
+      
     </div>
   );
 };
